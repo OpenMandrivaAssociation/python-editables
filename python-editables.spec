@@ -1,6 +1,6 @@
 Name:		python-editables
 Version:	0.3
-Release:	3
+Release:	4
 Source0:	https://files.pythonhosted.org/packages/source/e/editables/editables-%{version}.tar.gz
 Summary:	Editable installations
 URL:		https://pypi.org/project/editables/
