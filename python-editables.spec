@@ -1,26 +1,28 @@
+%define module editables
+
 Name:		python-editables
-Version:	0.3
-Release:	4
-Source0:	https://files.pythonhosted.org/packages/source/e/editables/editables-%{version}.tar.gz
+Version:	0.5
+Release:	1
 Summary:	Editable installations
-URL:		https://pypi.org/project/editables/
 License:	MIT
 Group:		Development/Python
-BuildRequires:	python-setuptools
+URL:		https://github.com/pfmoore/editables
+Source0:	%{URL}/archive/%{version}/%{name}-%{version}.tar.gz
+
+BuildSystem:	python
 BuildArch:	noarch
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
 
 %description
-Editable installations
+%{name} supports the building of wheels which, when installed, will expose
+packages in a local directory on sys.path in "editable mode".
 
-%prep
-%autosetup -p1 -n editables-%{version}
-
-%build
-python setup.py build
-
-%install
-python setup.py install --skip-build --root=%{buildroot}
+In other words, changes to the package source will be reflected in the
+package visible to Python, without needing a reinstall.
 
 %files
-%{py_puresitedir}/editables
-%{py_puresitedir}/editables*info
+%doc README.md
+%{py_puresitedir}/%{module}
+%{py_puresitedir}/%{module}-%{version}.dist-info
