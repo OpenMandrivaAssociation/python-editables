@@ -2,7 +2,7 @@
 
 Name:		python-editables
 Version:	0.6
-Release:	1
+Release:	2
 Summary:	Editable installations
 License:	MIT
 Group:		Development/Python
